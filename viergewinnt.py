@@ -38,23 +38,67 @@ class Board:
 		"""Checks whether one of the players has one of the four winning
 		patterns.
 		"""
+		pass
 
-class Game:
+	def show(self):
+		"""Prints the current board into the console"""
+		print(self.board)
+	
+
+class MultiplayerGame:
 	"""The actual game of 4-Gewinnt."""
 
 	def __init__(self):
 		self.board = Board()
 		self.players = []
-		self.initialize_game()
+		self.set_player_names()
+		self.start_game()
 
-	def initialize_game(self):
-		"""Initialization process consists of the following steps:
+	def set_player_names(self):
+		"""Let's user decide whether he wants to choose custom nicknames. If
+		he doesn't, we produce default names 'Player1' and 'Player2' """
+		print("Do you want custom nicknames?")
+		FLAG = True
+		VALID_INPUTS = ["Y", "N"]
+		while FLAG:
+			WANTS_NICKNAMES = input("Type Y for Yes, and N for No: ")
+			if WANTS_NICKNAMES in VALID_INPUTS:
+				FLAG = False
+		
+		player1 = Player()
+		player2 = Player()
 
-		1. Ask if user wants to play Multiplayer or Singleplayer game.float
-		2. Ask user if he wants to customize Nicknames. Otherwise generate
-		   default names.
-		3. Ask user what piece type he wants (player.piece_type). This can be
-		   either 1's or 2's (zeros on the board represent empty fields).
-		4. Start the game.
-		"""
+		player1.piece_type = 1  # Zeros in the np.array indicate empty fields
+		player2.piece_type = 2  
+
+		if WANTS_NICKNAMES == "Y":
+			player1.set_playername()
+			player2.set_playername()
+
+		else:
+			player1.name = "Player 1"
+			player2.name = "Player 2"
+		
+		self.players = [player1, player2]
+
+	def start_game(self):
+		
+	
+		
+
+
+
+
+###############################################################################
+	# def set_game_mode(self):
+	# 	print("Do you want to play in Singleplayer or Multiplayer-Mode?")
+	# 	FLAG = True
+	# 	VALID_INPUTS = ["S", "M"]
+	# 	while FLAG:
+	# 		GAME_MODE = input("Type S for Singleplayer or M for Multiplayer: ")
+	# 		if GAME_MODE in VALID_INPUTS:
+	# 			FLAG = False
+
+	# 	if GAME_MODE == "M":  # User chose Singleplayer Mode
+	# 		self.start_multiplayer()	
 		
