@@ -28,6 +28,7 @@ class Board:
 	def check_for_winning_patterns(self):
 		"""Checks whether one of the players one of the four winning patterns.
 		"""
+		pass
 	
 class Game:
 	"""The actual game of 4-Gewinnt"""
